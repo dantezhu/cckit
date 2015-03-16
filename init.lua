@@ -14,9 +14,9 @@
 --
 --=============================================================================
 
-ccutils = ccutils or {}
+neon_utils = neon_utils or {}
 
-function ccutils.fit_full_screen(node)
+function neon_utils.fit_full_screen(node)
     local resolutionPolicy = cc.Director:getInstance():getOpenGLView():getResolutionPolicy()
     local resolutionSize = cc.Director:getInstance():getOpenGLView():getDesignResolutionSize()
 
@@ -35,13 +35,13 @@ function ccutils.fit_full_screen(node)
     ccui.Helper:doLayout(node)
 end
 
-function ccutils.seekNodeByTag(root, tag)
+function neon_utils.seekNodeByTag(root, tag)
     if root:getTag() == tag then
         return root
     end
 
     for idx,child in ipairs(root:getChildren()) do
-        local result = ccutils.seekNodeByTag(child, tag)
+        local result = neon_utils.seekNodeByTag(child, tag)
         if result ~= nil then
             return result
         end
@@ -50,13 +50,13 @@ function ccutils.seekNodeByTag(root, tag)
     return nil
 end
 
-function ccutils.seekNodeByName(root, name)
+function neon_utils.seekNodeByName(root, name)
     if root:getName() == name then
         return root
     end
 
     for idx,child in ipairs(root:getChildren()) do
-        local result = ccutils.seekNodeByName(child, name)
+        local result = neon_utils.seekNodeByName(child, name)
         if result ~= nil then
             return result
         end
