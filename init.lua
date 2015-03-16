@@ -41,7 +41,7 @@ function ccutils.seekNodeByTag(root, tag)
     end
 
     for idx,child in ipairs(root:getChildren()) do
-        local result = self:seekNodeByTag(child, tag)
+        local result = ccutils.seekNodeByTag(child, tag)
         if result ~= nil then
             return result
         end
@@ -56,7 +56,7 @@ function ccutils.seekNodeByName(root, name)
     end
 
     for idx,child in ipairs(root:getChildren()) do
-        local result = self:seekNodeByName(child, name)
+        local result = ccutils.seekNodeByName(child, name)
         if result ~= nil then
             return result
         end
