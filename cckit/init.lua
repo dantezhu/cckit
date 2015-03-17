@@ -1,22 +1,6 @@
---=============================================================================
---
---     FileName: init.lua
---         Desc: 
---
---       Author: dantezhu
---        Email: dantezhu@qq.com
---     HomePage: http://www.vimer.cn
---
---      Created: 2015-03-16 14:54:19
---      Version: 0.0.1
---      History:
---               0.0.1 | dantezhu | 2015-03-16 14:54:19 | init
---
---=============================================================================
+cckit = cckit or {}
 
-neon_utils = neon_utils or {}
-
-function neon_utils.fit_full_screen(node)
+function cckit.fitFullScreen(node)
     local resolutionPolicy = cc.Director:getInstance():getOpenGLView():getResolutionPolicy()
     local resolutionSize = cc.Director:getInstance():getOpenGLView():getDesignResolutionSize()
 
@@ -35,13 +19,13 @@ function neon_utils.fit_full_screen(node)
     ccui.Helper:doLayout(node)
 end
 
-function neon_utils.seekNodeByTag(root, tag)
+function cckit.seekNodeByTag(root, tag)
     if root:getTag() == tag then
         return root
     end
 
     for idx,child in ipairs(root:getChildren()) do
-        local result = neon_utils.seekNodeByTag(child, tag)
+        local result = cckit.seekNodeByTag(child, tag)
         if result ~= nil then
             return result
         end
@@ -50,13 +34,13 @@ function neon_utils.seekNodeByTag(root, tag)
     return nil
 end
 
-function neon_utils.seekNodeByName(root, name)
+function cckit.seekNodeByName(root, name)
     if root:getName() == name then
         return root
     end
 
     for idx,child in ipairs(root:getChildren()) do
-        local result = neon_utils.seekNodeByName(child, name)
+        local result = cckit.seekNodeByName(child, name)
         if result ~= nil then
             return result
         end
