@@ -1,6 +1,6 @@
 cckit = cckit or {}
 
-function cckit.fitFullScreen(node)
+function cckit.fillScreen(node)
     local resolutionPolicy = cc.Director:getInstance():getOpenGLView():getResolutionPolicy()
     local resolutionSize = cc.Director:getInstance():getOpenGLView():getDesignResolutionSize()
 
