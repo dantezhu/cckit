@@ -34,3 +34,16 @@ function cckit.seekNodeByName(root, name)
     
     return nil
 end
+
+-- 仅注册一次
+function cckit.scheduleScriptFuncOnce(callback, interval)
+    schedEntry = cc.Director:getInstance():getScheduler():scheduleScriptFunc(
+        function (...)
+            callback(...)
+
+            cc.Director:getInstance():getScheduler():unscheduleScriptEntry(schedEntry)
+        end,
+    interval, false)
+
+    return schedEntry
+end
