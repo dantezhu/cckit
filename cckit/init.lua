@@ -37,8 +37,11 @@ end
 
 -- 仅注册一次
 function cckit.scheduleScriptFuncOnce(callback, interval)
+    -- 务必先定义local，否则在回调函数里面认不出来
+    local schedEntry
     schedEntry = cc.Director:getInstance():getScheduler():scheduleScriptFunc(
         function (...)
+            -- print(string.format("callback: %s, schedEntry: %s", callback, schedEntry))
             cc.Director:getInstance():getScheduler():unscheduleScriptEntry(schedEntry)
 
             callback(...)
