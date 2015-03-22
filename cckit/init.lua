@@ -39,9 +39,9 @@ end
 function cckit.scheduleScriptFuncOnce(callback, interval)
     schedEntry = cc.Director:getInstance():getScheduler():scheduleScriptFunc(
         function (...)
-            callback(...)
-
             cc.Director:getInstance():getScheduler():unscheduleScriptEntry(schedEntry)
+
+            callback(...)
         end,
     interval, false)
 
