@@ -1,6 +1,6 @@
 cckit = cckit or {}
 
-function cckit.fillScreen(node)
+function cckit.fitScreen(node)
     node:setContentSize(cc.Director:getInstance():getVisibleSize())
     ccui.Helper:doLayout(node)
 end
